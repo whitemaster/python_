@@ -1,21 +1,24 @@
 import random
 
 
-def generation_arr(arr):
-    arr = [random.randint(0,100) for _ in range(5)]
-    return arr
-def sum(arr):
-    sum=0
-    for i in arr:
-        sum+=i
-    return sum
+def generation_arr(arr): # этой функции не нужны атрибуты
+    # arr = [random.randint(0,100) for _ in range(5)] # эта переменная лишняя
+    return [random.randint(0,100) for _ in range(5)]
+# def sum(arr): # sum - служебное слово, нельзя так называть функцию
+#     sum=0
+#     for i in arr:
+#         sum+=i
+#     return sum
 
 
 if __name__ == '__main__':
-    arr = []
-    max_sum = 0
-    all_arr = []
-    max_arr = []
+    arr = [] # это не нужно
+    max_sum = 0 # перенести туда, где остальные подобные переменные
+    all_arr = [] # для обозначения множественного числа используется окончание, в данном случае просто arrs
+    max_arr = [] 
+    
+    
+    # всё это в одном цикле
     arr_1 = generation_arr(arr)
     all_arr.append(arr_1)
     arr_2 = generation_arr(arr)
@@ -41,7 +44,7 @@ if __name__ == '__main__':
         print(sum(arr))
     number = 0
     max_number = 0
-    for i in all_arr:
+    for i in all_arr: # правильно именуй переменные, как будто от этого зависит твоя жизнь! ты итерирушь массивы, значит создаёшь в области видимости цикла массив 
         number +=1
         if sum(i) > max_sum:
             max_sum = sum(i)
